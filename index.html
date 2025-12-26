@@ -1,9 +1,11 @@
-  <html lang="id">  
+<!DOCTYPE html>
+<html lang="id">  
 <head>  
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>Bulus King Coin ($BKCO)</title>  
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Luckiest+Guy&display=swap" rel="stylesheet">  <style>  
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Luckiest+Guy&display=swap" rel="stylesheet">  
+    <style>  
     /* --- 1. SETUP DASAR --- */  
     * {  
         box-sizing: border-box;  
@@ -30,7 +32,7 @@
     }  
 
     /* --- 2. FONTS & WARNA --- */  
-    h1, h2, h3, .meme-font {  
+    h1, h2, h3, h4, .meme-font {  
         font-family: 'Luckiest Guy', cursive;  
         letter-spacing: 1px;  
     }  
@@ -47,6 +49,7 @@
     .text-blue { color: #60a5fa; }  
     .text-red { color: #f87171; }  
     .text-gray { color: #9ca3af; }  
+    .text-white { color: #ffffff; }
 
     .glass-panel {  
         background: rgba(20, 20, 30, 0.7);  
@@ -132,21 +135,19 @@
     }  
     .btn-social:active { transform: scale(0.98); }  
       
-    /* TOMBOL BARU UNTUK PUMP.FUN */  
     .btn-pump {   
         background: linear-gradient(90deg, #10b981, #059669);   
         box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);   
         border: 1px solid #34d399;  
-        font-size: 16px; /* Lebih besar sedikit biar menonjol */  
+        font-size: 16px;  
         text-transform: uppercase;  
     }  
 
-    /* TOMBOL BARU UNTUK PHANTOM */
     .btn-phantom {
-        background: linear-gradient(90deg, #AB9FF2, #8A7CD8); /* Warna khas Phantom */
+        background: linear-gradient(90deg, #AB9FF2, #8A7CD8); 
         box-shadow: 0 4px 15px rgba(171, 159, 242, 0.3);
         border: 1px solid #AB9FF2;
-        color: #fff; /* Teks putih agar kontras */
+        color: #fff;
     }
       
     .btn-tele { background-color: #5865F2; box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3); }  
@@ -245,6 +246,64 @@
         margin-right: 8px;  
     }  
 
+    /* STYLING UNTUK WHITEPAPER ACCORDION */
+    .wp-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .wp-details {
+        background: rgba(20, 20, 30, 0.4);
+        border: 1px solid rgba(251, 191, 36, 0.3);
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    .wp-details[open] {
+        background: rgba(20, 20, 30, 0.8);
+        border-color: #fbbf24;
+    }
+    .wp-summary {
+        padding: 15px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+        list-style: none;
+        color: #fbbf24;
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 16px;
+    }
+    .wp-summary::-webkit-details-marker {
+        display: none;
+    }
+    .wp-summary::after {
+        content: '+';
+        font-size: 20px;
+        transition: transform 0.3s;
+    }
+    .wp-details[open] .wp-summary::after {
+        transform: rotate(45deg);
+    }
+    .wp-content {
+        padding: 0 15px 15px 15px;
+        font-size: 13px;
+        color: #d1d5db;
+        line-height: 1.6;
+        border-top: 1px solid rgba(255,255,255,0.05);
+        margin-top: 5px;
+        padding-top: 10px;
+    }
+    .wp-content ul {
+        padding-left: 20px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .wp-content li {
+        margin-bottom: 4px;
+    }
+
     footer {  
         text-align: center;  
         padding: 40px 20px;  
@@ -287,11 +346,6 @@
     </div>  
       
     <div style="margin-top: 25px; margin-bottom: 25px; text-align: center;">
-    
-  
-    </p>
-
-    <div style="margin-top: 15px; margin-bottom: 15px; text-align: center;">
 
     <p style="color: #fbbf24; font-weight: bold; margin-bottom: 3px; font-size: 0.7rem; letter-spacing: 0.5px;">
         CONTRACT ADDRESS
@@ -300,12 +354,12 @@
     <div style="
         background: #facc15;
         color: #000;
-        padding: 4px 10px; /* Jarak dalam diperkecil */
+        padding: 4px 10px;
         border-radius: 6px;
         border: 1.5px solid #fff;
         font-weight: bold;
         font-family: monospace;
-        font-size: 0.75rem; /* Ukuran font diperkecil */
+        font-size: 0.75rem;
         display: inline-block;
         box-shadow: 0 0 10px rgba(234, 179, 8, 0.4);
         max-width: 90%;
@@ -315,12 +369,6 @@
     </div>
 
 </div>
-
-    </div>
-
-</div>
-  
-    </p>  
 </section>  
 
 <section class="section">  
@@ -445,6 +493,149 @@
     </div>  
 </section>  
 
+<section class="section" style="background: #050505;">
+    <h2 class="section-title meme-font">WHITEPAPER 🧾</h2>
+    <div class="wp-container">
+        
+        <details class="wp-details">
+            <summary class="wp-summary">1. INTRODUCTION</summary>
+            <div class="wp-content">
+                <p><strong class="text-yellow">Bulus King Coin (BKCO)</strong> is a memecoin inspired by the philosophy of “slow, steady, and grounded growth.”</p>
+                <br>
+                <p>In an environment where many projects chase hype, instant pumps, and speculation, BKCO chooses a different path:</p>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>✔ Transparency</li>
+                    <li>✔ Community Trust</li>
+                    <li>✔ Sustainable Project Growth</li>
+                </ul>
+                <br>
+                <p>BKCO believes that strong foundations matter more than temporary momentum. <span class="text-white" style="font-weight:bold;">Slow and steady doesn’t mean late — it means we arrive stronger.</span></p>
+            </div>
+        </details>
+
+        <details class="wp-details">
+            <summary class="wp-summary">2. VISION & MISSION</summary>
+            <div class="wp-content">
+                <h4 class="text-purple meme-font">VISION</h4>
+                <p>To build a community-driven memecoin that grows through trust, identity, and shared values.</p>
+                <br>
+                <h4 class="text-purple meme-font">MISSION</h4>
+                <ul>
+                    <li>Grow step-by-step, not rushed or forced.</li>
+                    <li>Build long-term confidence rather than hype.</li>
+                    <li>Maintain transparency throughout the journey.</li>
+                    <li>Encourage a grounded, patient, and responsible community.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="wp-details">
+            <summary class="wp-summary">3. CORE VALUES</summary>
+            <div class="wp-content">
+                <p><strong class="text-green">Transparency</strong><br>Open communication, honest progress, and clear intentions.</p>
+                <br>
+                <p><strong class="text-green">Community Trust</strong><br>The community is the backbone of BKCO — not just holders, but partners in growth.</p>
+                <br>
+                <p><strong class="text-green">Sustainability</strong><br>BKCO prioritizes stability and realistic development over speculation.</p>
+                <br>
+                <p><strong class="text-green">Humor & Culture</strong><br>Memecoin spirit stays alive through memes, fun identity, and positive culture. But balanced with responsibility.</p>
+            </div>
+        </details>
+
+        <details class="wp-details">
+            <summary class="wp-summary">4. THE BULUS WAY 🐢</summary>
+            <div class="wp-content">
+                <p>The turtle represents: <strong>patience, resilience, consistent progress.</strong></p>
+                <br>
+                <p>BKCO believes that rushing leads to reckless decisions. Slow steps build stronger outcomes.</p>
+                <br>
+                <p class="text-yellow" style="font-weight:bold; text-align:center; border:1px dashed #fbbf24; padding:10px; border-radius:8px;">
+                    The goal isn’t to move fast.<br>👉 but to move correctly, transparently, and together.
+                </p>
+            </div>
+        </details>
+
+        <details class="wp-details">
+            <summary class="wp-summary">5. COMMUNITY FIRST</summary>
+            <div class="wp-content">
+                <p>BKCO is built with the community at the center. Community roles include:</p>
+                <ul>
+                    <li>Discussion & Feedback</li>
+                    <li>Spreading Awareness</li>
+                    <li>Helping shape the project direction</li>
+                    <li>Protecting trust & integrity</li>
+                </ul>
+                <br>
+                <div style="background:rgba(239, 68, 68, 0.2); padding:10px; border-radius:8px; text-align:center;">
+                    No fake promises • No unrealistic expectations • No forced hype
+                </div>
+            </div>
+        </details>
+
+        <details class="wp-details">
+            <summary class="wp-summary">6. ROADMAP PHILOSOPHY</summary>
+            <div class="wp-content">
+                <p>Instead of promising superficial utilities, BKCO focuses on:</p>
+                <ul>
+                    <li>Brand identity</li>
+                    <li>Culture building</li>
+                    <li>Organic growth</li>
+                    <li>Realistic execution</li>
+                </ul>
+                <p>Roadmap is built progressively and adapts based on community health and project maturity.</p>
+            </div>
+        </details>
+
+        <details class="wp-details">
+            <summary class="wp-summary">7. TOKEN PHILOSOPHY</summary>
+            <div class="wp-content">
+                <p style="color: #f87171; font-weight: bold;">(NOT FINANCIAL PROMISE)</p>
+                <p>BKCO does not position itself as a guaranteed investment. It is:</p>
+                <ul>
+                    <li>A culture project</li>
+                    <li>A community movement</li>
+                    <li>A memecoin with identity</li>
+                </ul>
+                <br>
+                <p class="meme-font text-white" style="text-align:center; font-size:16px;">Holders are part of the journey — not exit liquidity.</p>
+            </div>
+        </details>
+
+        <details class="wp-details">
+            <summary class="wp-summary">8. RESPONSIBILITY</summary>
+            <div class="wp-content">
+                <p><strong>BKCO avoids:</strong></p>
+                <ul style="color:#f87171;">
+                    <li>❌ Over-promising</li>
+                    <li>❌ Misleading claims</li>
+                    <li>❌ Pump-and-dump culture</li>
+                </ul>
+                <br>
+                <p><strong>BKCO commits to:</strong></p>
+                <ul style="color:#4ade80;">
+                    <li>✔ Honesty</li>
+                    <li>✔ Gradual progress</li>
+                    <li>✔ Respect for holders</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="wp-details">
+            <summary class="wp-summary">9. CLOSING STATEMENT</summary>
+            <div class="wp-content">
+                <p>BKCO is more than a coin. It is patience over greed, trust over noise, foundation over flash.</p>
+                <br>
+                <p>The journey may be slow — but every step is intentional. Our strength is not speed. Our strength is commitment, unity, and resilience.</p>
+                <br>
+                <div style="text-align:center; padding:15px; background: #fbbf24; color:black; border-radius:10px;">
+                    <span class="meme-font" style="font-size:20px;">BKCO — Slow but Strong 🐢</span>
+                </div>
+            </div>
+        </details>
+
+    </div>
+</section>
+
 <footer>  
     <p class="text-gray" style="font-size: 12px; margin-bottom:10px;">  
         $BKCO is a meme coin for entertainment purposes. Crypto is risky. DYOR.  
@@ -455,3 +646,4 @@
 </div>  
 </body>  
 </html>
+
