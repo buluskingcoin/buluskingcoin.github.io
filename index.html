@@ -4,195 +4,307 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sinar Jaya Houseware - Official Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --primary-color: #0f4c5c; /* Hijau Emerald Gelap (Elegan) */
+            --accent-color: #fb8c00;  /* Oranye Shopee (Promosi) */
+            --bg-gradient: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%);
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-gradient);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
             padding: 20px;
-        }
-        .card {
-            background-color: white;
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            max-width: 420px;
-            width: 100%;
-            text-align: center;
-            border-top: 5px solid #00acc1;
-        }
-        .logo-img {
-            width: 100%;
-            max-width: 200px;
-            height: auto;
-            border-radius: 15px;
-            margin: 0 auto 20px;
-            border: 2px solid #00acc1;
-            padding: 3px;
-            background-color: white;
-            display: block;
-        }
-        h1 {
-            margin: 0 0 15px;
-            color: #333;
-            font-size: 24px;
-            font-weight: 700;
-        }
-        .tagline {
-            color: #00838f;
-            font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-        .description {
-            color: #555;
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 15px;
-            text-align: justify;
-            padding: 0 10px;
-        }
-        .highlight {
-            background-color: #e0f7fa;
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 13px;
-            color: #006064;
-            margin-bottom: 20px;
-            margin-top: 15px;
+            color: #444;
         }
 
-        /* --- GAYA UNTUK SLIDER GAMBAR --- */
-        .slider-container {
+        .container {
             width: 100%;
-            overflow: hidden;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            position: relative;
-            border: 1px solid #eee;
+            max-width: 450px;
+            perspective: 1000px;
         }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 40px 25px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.02);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Hiasan Dekoratif di atas */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-color), #00acc1);
+        }
+
+        .logo-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .logo-img {
+            width: 110px;
+            height: 110px;
+            object-fit: contain;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            background-color: white;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            margin: 10px 0 5px;
+            color: var(--primary-color);
+            font-size: 28px;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 25px;
+            font-style: italic;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tagline::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: #ddd;
+            margin: 8px auto 0;
+        }
+
+        /* --- FITUR UTAMA (Grid Icon) --- */
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 25px;
+            background: #f8fcfd;
+            padding: 15px 10px;
+            border-radius: 15px;
+            border: 1px solid #eef6f7;
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 11px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .feature-icon {
+            font-size: 20px;
+            margin-bottom: 5px;
+            background: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* --- DESKRIPSI --- */
+        .description {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 25px;
+            padding: 0 10px;
+        }
+
+        /* --- SLIDER GAMBAR MODERN --- */
+        .slider-wrapper {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+        }
+
         .slider {
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: none; /* Hilangkan scrollbar Firefox */
+            scrollbar-width: none;
         }
-        .slider::-webkit-scrollbar {
-            display: none; /* Hilangkan scrollbar Chrome/Safari */
-        }
+        .slider::-webkit-scrollbar { display: none; }
+
         .slider img {
-            flex: 0 0 100%; /* Gambar memenuhi 100% lebar container */
+            flex: 0 0 100%;
             width: 100%;
-            height: 250px; /* Tinggi tetap agar rapi */
-            object-fit: contain; /* Gambar utuh tidak terpotong */
+            height: 260px;
+            object-fit: cover;
+            object-position: center;
             scroll-snap-align: center;
-            background-color: #f9f9f9;
-        }
-        .slider-hint {
-            font-size: 10px;
-            color: #999;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            font-style: italic;
+            transition: transform 0.3s;
         }
 
-        /* Tombol Animasi Shopee */
-        .btn-app {
-            background: linear-gradient(90deg, #ee4d2d 0%, #ff7337 100%);
+        .slider-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
             color: white;
-            padding: 16px 25px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 10px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* --- TOMBOL CTA --- */
+        .btn-app {
+            background: linear-gradient(45deg, #ee4d2d, #ff7337);
+            color: white;
+            padding: 18px 30px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
-            display: block;
-            box-shadow: 0 4px 15px rgba(238, 77, 45, 0.3);
-            transition: transform 0.2s;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 25px rgba(238, 77, 45, 0.4);
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
             width: 100%;
             font-size: 16px;
-            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            animation: pulse-orange 2s infinite;
         }
-        .btn-app:active {
-            transform: scale(0.98);
+
+        .btn-app:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(238, 77, 45, 0.5);
         }
+
         .btn-app span {
-            margin-left: 8px;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+
+        .footer {
+            margin-top: 35px;
+            font-size: 11px;
+            color: #aaa;
         }
         
-        .footer {
-            margin-top: 30px;
-            font-size: 11px;
-            color: #999;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
+        .footer strong {
+            color: var(--primary-color);
+        }
+
+        /* Animasi */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse-orange {
+            0% { box-shadow: 0 0 0 0 rgba(238, 77, 45, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(238, 77, 45, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(238, 77, 45, 0); }
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <img src="https://sinarjayahouseware.github.io/Sinarjaya.jpg" alt="Logo Sinar Jaya Houseware" class="logo-img">
-        
-        <h1>Sinar Jaya Houseware</h1>
-        
-        <div class="tagline">
-            "Rumah yang tertata baik, awal kehidupan yang nyaman."
-        </div>
-
-        <div class="description">
-            <p>
-                Menghadirkan koleksi perabotan rumah tangga pilihan yang memadukan fungsi, kualitas, dan estetika.
-            </p>
-            <p>
-                Setiap produk kami dirancang untuk mendukung kenyamanan, kerapian, dan keindahan rumah Anda—dengan standar mutu yang dapat diandalkan dan harga yang tetap bersahabat.
-            </p>
-        </div>
-
-        <div class="highlight">
-            ✨ Kualitas Handal &bull; Desain Estetik &bull; Harga Bersahabat
-        </div>
-
-        <div class="slider-container">
-            <div class="slider">
-                <img src="https://sinarjayahouseware.github.io/BS892_7-2GB-b.jpg" alt="Produk 1">
-                <img src="https://sinarjayahouseware.github.io/BS892_7-2GBb-box.jpg" alt="Produk 2">
-                <img src="https://sinarjayahouseware.github.io/Screenshot_20260113_223824_Chrome.jpg" alt="Produk 3">
-                <img src="https://sinarjayahouseware.github.io/Screenshot_20260113_224053_Shopee.jpg" alt="Produk 4">
-                <img src="https://sinarjayahouseware.github.io/Screenshot_20260113_224209_Shopee.jpg" alt="Produk 5">
+    <div class="container">
+        <div class="card">
+            
+            <div class="logo-wrapper">
+                <img src="https://sinarjayahouseware.github.io/Sinarjaya.jpg" alt="Sinar Jaya Houseware" class="logo-img">
             </div>
-        </div>
-        <div class="slider-hint">
-            &larr; Geser gambar untuk melihat koleksi &rarr;
-        </div>
+            
+            <h1>Sinar Jaya Houseware</h1>
+            
+            <div class="tagline">
+                Estetika & Kenyamanan untuk Hunian Anda
+            </div>
 
-        <button onclick="bukaAplikasi()" class="btn-app">
-            Belanja Sekarang di Shopee 
-            <span>&#128722;</span> 
-        </button>
+            <div class="features">
+                <div class="feature-item">
+                    <div class="feature-icon">💎</div>
+                    <span>Premium</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📦</div>
+                    <span>Ready Stok</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔥</div>
+                    <span>Best Price</span>
+                </div>
+            </div>
 
-        <div class="footer">
-            Official Store: @elskaja_shopp
+            <div class="slider-wrapper">
+                <div class="slider-badge">Geser &rarr;</div>
+                <div class="slider">
+                    <img src="https://sinarjayahouseware.github.io/BS892_7-2GB-b.jpg" style="object-fit:contain; background:#fff;" alt="Produk 1">
+                    <img src="https://sinarjayahouseware.github.io/BS892_7-2GBb-box.jpg" style="object-fit:contain; background:#fff;" alt="Produk 2">
+                    <img src="https://sinarjayahouseware.github.io/Screenshot_20260113_223824_Chrome.jpg" alt="Produk 3">
+                    <img src="https://sinarjayahouseware.github.io/Screenshot_20260113_224053_Shopee.jpg" alt="Produk 4">
+                    <img src="https://sinarjayahouseware.github.io/Screenshot_20260113_224209_Shopee.jpg" alt="Produk 5">
+                </div>
+            </div>
+
+            <div class="description">
+                <p>
+                    Wujudkan rumah impian yang rapi dan estetik. Kami menghadirkan koleksi perabotan rumah tangga pilihan dengan standar kualitas terbaik dan harga yang bersahabat.
+                </p>
+            </div>
+
+            <button onclick="bukaAplikasi()" class="btn-app">
+                Beli Sekarang <span>&#128722;</span>
+            </button>
+
+            <div class="footer">
+                Official Store &bull; <strong>@elskaja_shopp</strong>
+            </div>
         </div>
     </div>
 
     <script>
         function bukaAplikasi() {
+            // USERNAME DIKEMBALIKAN KE ASAL
             var username = "elskaja_shopp"; 
             var webUrl = "https://shopee.co.id/" + username;
             
+            // Deteksi jika user menggunakan Android
             var isAndroid = /Android/i.test(navigator.userAgent);
             
             if (isAndroid) {
+                // Link Intent Shopee
                 var intentUrl = "intent://shopee.co.id/" + username + "#Intent;scheme=https;package=com.shopee.id;end";
                 window.location.href = intentUrl;
             } else {
+                // Link Browser Biasa
                 window.location.href = webUrl;
             }
         }
