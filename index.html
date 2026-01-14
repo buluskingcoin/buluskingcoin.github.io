@@ -7,8 +7,8 @@
     
     <style>
         :root {
-            --primary-color: #0f4c5c; /* Hijau Emerald Gelap (Elegan) */
-            --accent-color: #fb8c00;  /* Oranye Shopee (Promosi) */
+            --primary-color: #0f4c5c; /* Hijau Emerald Gelap */
+            --accent-color: #fb8c00;  /* Oranye Shopee */
             --bg-gradient: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
             --card-bg: rgba(255, 255, 255, 0.95);
         }
@@ -53,27 +53,29 @@
             background: linear-gradient(90deg, var(--primary-color), #00acc1);
         }
 
+        /* --- POSISI LOGO DITURUNKAN --- */
         .logo-wrapper {
             position: relative;
             display: inline-block;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            margin-top: 30px; /* Jarak tambahan agar logo turun ke bawah */
         }
 
-        /* --- PERUBAHAN LOGO DISINI --- */
+        /* --- LOGO SUPER BESAR (JUMBO) --- */
         .logo-img {
-            width: 160px;  /* Diperbesar (sebelumnya 110px) */
-            height: 160px; /* Diperbesar (sebelumnya 110px) */
+            width: 280px;   /* Diperbesar menjadi 280px */
+            height: 280px;  /* Diperbesar menjadi 280px */
             object-fit: contain;
-            border-radius: 25px; /* Diubah jadi kotak dengan sudut tumpul (sebelumnya 50%) */
-            border: 4px solid white;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Shadow sedikit dipertegas */
+            border-radius: 40px; /* Radius disesuaikan agar proporsional */
+            border: 5px solid white; /* Border sedikit dipertebal */
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
             background-color: white;
         }
-        /* --------------------------- */
+        /* -------------------------------- */
 
         h1 {
             font-family: 'Playfair Display', serif;
-            margin: 10px 0 5px;
+            margin: 15px 0 5px;
             color: var(--primary-color);
             font-size: 28px;
             letter-spacing: -0.5px;
@@ -97,7 +99,7 @@
             margin: 8px auto 0;
         }
 
-        /* --- FITUR UTAMA (Grid Icon) --- */
+        /* --- FITUR UTAMA --- */
         .features {
             display: flex;
             justify-content: space-around;
@@ -139,7 +141,7 @@
             padding: 0 10px;
         }
 
-        /* --- SLIDER GAMBAR MODERN --- */
+        /* --- SLIDER GAMBAR --- */
         .slider-wrapper {
             position: relative;
             border-radius: 15px;
@@ -293,19 +295,15 @@
 
     <script>
         function bukaAplikasi() {
-            // USERNAME DIKEMBALIKAN KE ASAL
             var username = "elskaja_shopp"; 
             var webUrl = "https://shopee.co.id/" + username;
             
-            // Deteksi jika user menggunakan Android
             var isAndroid = /Android/i.test(navigator.userAgent);
             
             if (isAndroid) {
-                // Link Intent Shopee
                 var intentUrl = "intent://shopee.co.id/" + username + "#Intent;scheme=https;package=com.shopee.id;end";
                 window.location.href = intentUrl;
             } else {
-                // Link Browser Biasa
                 window.location.href = webUrl;
             }
         }
